@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شهادة عمل - ATFD</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', Arial, sans-serif;
+            line-height: 1.8;
+            background: #f5f5f5;
+            padding: 20px;
+            color: #333;
+        }
+
+        .certificate-container {
+            background: #f8f6f1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #8B5FBF;
+            margin-bottom: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .organization-name {
+            font-size: 0.85rem;
+            color: #8B5FBF;
+            line-height: 1.4;
+            max-width: 200px;
+        }
+
+        .date-section {
+            text-align: right;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .reference-number {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .certificate-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin: 40px 0;
+            text-decoration: underline;
+        }
+
+        .certificate-body {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            text-align: justify;
+            margin-bottom: 60px;
+        }
+
+        .certificate-body p {
+            margin-bottom: 25px;
+        }
+
+        .editable-field {
+            display: inline-block;
+            min-width: 150px;
+            border-bottom: 1px solid #333;
+            padding: 2px 5px;
+            background: rgba(139, 95, 191, 0.1);
+            cursor: text;
+            transition: all 0.3s ease;
+        }
+
+        .editable-field:hover {
+            background: rgba(139, 95, 191, 0.2);
+        }
+
+        .editable-field:focus {
+            outline: none;
+            background: rgba(139, 95, 191, 0.3);
+            border-bottom: 2px solid #8B5FBF;
+        }
+
+        .signature-section {
+            margin-top: 80px;
+            text-align: right;
+        }
+
+        .signature-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .signature-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            right: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            font-size: 0.75rem;
+            color: #666;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .website {
+            color: #8B5FBF;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .address-info {
+            font-size: 0.7rem;
+        }
+
+        .print-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .print-btn, .pdf-btn {
+            background: #8B5FBF;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .print-btn:hover, .pdf-btn:hover {
+            background: #7A4FA3;
+            transform: translateY(-2px);
+        }
+
+        .pdf-btn {
+            background: #28a745;
+        }
+
+        .pdf-btn:hover {
+            background: #218838;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .print-controls {
+                display: none !important;
+            }
+            
+            .certificate-container {
+                background: #f8f6f1;
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+                padding: 30px;
+                min-height: auto;
+                page-break-inside: avoid;
+            }
+            
+            .editable-field {
+                border-bottom: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+            }
+            
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .certificate-container {
+                padding: 20px;
+            }
+            
+            .header-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .date-section {
+                text-align: right;
+                align-self: flex-end;
+            }
+            
+            .certificate-title {
+                font-size: 1.5rem;
+            }
+            
+            .certificate-body {
+                font-size: 1rem;
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-controls">
+        <button class="print-btn" onclick="window.print()">
+            🖨️ طباعة مباشرة
+        </button>
+        <button class="pdf-btn" onclick="downloadAsPDF()">
+            📄 تحميل PDF
+        </button>
+    </div>
+    
+    <div class="certificate-container">
+        <div class="header-section">
+            <div class="logo-section">
+                <div class="logo"><span class="editable-field" contenteditable="true">ATFD</span></div>
+                <div class="organization-name">
+                    <span class="editable-field" contenteditable="true">الجمعية التونسية للنساء الديمقراطيات</span><br>
+                    <span class="editable-field" contenteditable="true">Association Tunisienne<br>
+                    des Femmes Démocrates</span>
+                </div>
+            </div>
+            
+            <div class="date-section">
+                <div>تونس في <span class="editable-field" contenteditable="true">17 جانفي 2202</span></div>
+                <div class="reference-number">
+                    MF :<span class="editable-field" contenteditable="true">RH-RS-2022002</span>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="certificate-title">شهادة عمل</h1>
+
+        <div class="certificate-body">
+            <p>
+                إني <span class="editable-field" contenteditable="true">الممضية</span> أسفله <span class="editable-field" contenteditable="true">ناهلة الزغلامي</span> <span class="editable-field" contenteditable="true">رئيسة الجمعية التونسية للنساء الديمقراطيات</span> <span class="editable-field" contenteditable="true">صاحبة</span> المعرف الوحيد <span class="editable-field" contenteditable="true">10530745</span> أشهد أن <span class="editable-field" contenteditable="true">السيدة</span> <span class="editable-field" contenteditable="true">أميرة</span> <span class="editable-field" contenteditable="true">يعقوبي</span> <span class="editable-field" contenteditable="true">صاحبة</span> بطاقة التعريف الوطنية عدد <span class="editable-field" contenteditable="true">13624547</span> <span class="editable-field" contenteditable="true">تشغل</span> خطة <span class="editable-field" contenteditable="true">مكلفة بمشروع بالجمعية التونسية للنساء الديمقراطيات</span> وذلك منذ <span class="editable-field" contenteditable="true">1 ديسمبر 2120</span> إلى يومنا هذا.
+            </p>
+
+            <p>
+                سُلمت <span class="editable-field" contenteditable="true">لها</span> هذه الشهادة للإدلاء بها عند الطلب.
+            </p>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-title"><span class="editable-field" contenteditable="true">النائبة العامة</span></div>
+            <div class="signature-name"><span class="editable-field" contenteditable="true">ناهلة الزغلامي</span></div>
+        </div>
+
+        <div class="footer">
+            <div class="website"><span class="editable-field" contenteditable="true">www.atfd-tunisie.org.tn</span></div>
+            <div class="address-info">
+                <span class="editable-field" contenteditable="true">شارع فرنسا، إقامة ابن خلدون (الوطني)، الطابق الخامس، شقة 355، باب بحر - تونس 1000</span><br>
+                <span class="editable-field" contenteditable="true">5, Avenue de France, Imm Ibn Khaldoun (National), 5ème Etage, Apt 355, Bab Bhar - Tunis - 1000</span><br>
+                <span class="editable-field" contenteditable="true">Tél : + 216 71 321 330 - Fax : + 216 71 321 315 - atfd2021@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // PDF Download Function
+        function downloadAsPDF() {
+            // Hide the print controls temporarily
+            const controls = document.querySelector('.print-controls');
+            controls.style.display = 'none';
+            
+            // Create a new window for printing
+            const printWindow = window.open('', '_blank');
+            const htmlContent = document.documentElement.outerHTML;
+            
+            printWindow.document.write(htmlContent);
+            printWindow.document.close();
+            
+            // Wait for content to load, then print
+            printWindow.onload = function() {
+                printWindow.print();
+                printWindow.close();
+            };
+            
+            // Show controls again
+            setTimeout(() => {
+                controls.style.display = 'flex';
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const editableFields = document.querySelectorAll('.editable-field');
+            
+            editableFields.forEach(field => {
+                field.addEventListener('focus', function() {
+                    // Select all text when field is focused
+                    const range = document.createRange();
+                    range.selectNodeContents(this);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                });
+                
+                field.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        this.blur();
+                    }
+                });
+                
+                // Prevent line breaks
+                field.addEventListener('paste', function(e) {
+                    e.preventDefault();
+                    const text = (e.originalEvent || e).clipboardData.getData('text/plain').replace(/\n/g, ' ');
+                    document.execCommand('insertText', false, text);
+                });
+            });
+
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl+P for print
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+                // Ctrl+S for save as PDF
+                if (e.ctrlKey && e.key === 's') {
+                    e.preventDefault();
+                    downloadAsPDF();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
